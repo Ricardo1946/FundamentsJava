@@ -1,32 +1,28 @@
 package Creational.Singleton;
 
-public class Configurador {
+public class Singleton {
 
-    private String url;
-    private String baseDatos;
-    private static final Configurador miconfigurador;
+    // static variable reference of single_instance
+    //of type Singleton
+    private static Singleton single_instance = null;
 
-    public static Configurador getConfigurador(String url, String baseDatos) {
+    // Declaaring a variable of type String
+    public String s;
 
-        if (miconfigurador == null) {
-            miconfigurador = new Configurador(url, baseDatos);
-        }
-        return miconfigurador;
+    /*
+    Constructor
+    Here we eill be creating private constructor
+    restricted to this itself
+     */
+    private Singleton(){
+        s = "Hello I am a string part of Singleton class";
     }
-    private Configurador(String url, String baseDatos) {
-        this.url = url;
-        this.baseDatos = baseDatos;
-    }
-    public String getUrl(){
-        return  url;
-    }
-    public void setUrl(){
-        this.url = url;
-    }
-    public String getBaseDatos(){
-        return  baseDatos;
-    }
-    public void setBaseDatos(String baseDatos) {
-        this.baseDatos = baseDatos;
+
+    // Static method
+    //Static method to create instance of Singleton class
+    public static synchronized Singleton getInstance(){
+        if (single_instance == null)
+            single_instance = new Singleton();
+        return single_instance;
     }
 }

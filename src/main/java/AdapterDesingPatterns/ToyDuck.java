@@ -1,2 +1,5 @@
-package AdapterDesingPatterns;public interface ToyDuck {
+package AdapterDesingPatterns;
+
+public interface ToyDuck {
+    public void squeak();
 }
